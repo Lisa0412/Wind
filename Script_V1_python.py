@@ -1,4 +1,5 @@
 import requests
+import weathercode_dictionary
 
 user_input = input("Введіть координати в десяткових градусах через кому, приклад: 49.хххх, 24.хххх\n")
 input_list = user_input.split(",")
@@ -28,7 +29,7 @@ response = requests.get(f"https://api.open-meteo.com/v1/forecast?latitude={input
 API_data = response.json()
 weather_value = API_data['current_weather']
 
-
+print(weathercode_dictionary.weathercode_dictionary)
 print(weather_value)
 
 
