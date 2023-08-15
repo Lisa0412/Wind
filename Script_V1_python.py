@@ -28,7 +28,7 @@ response = requests.get(f"https://api.open-meteo.com/v1/forecast?latitude={input
 API_data = response.json()
 weather_value = API_data['current_weather']
 
-print(type(weather_value))
+
 print(weather_value)
 
 
