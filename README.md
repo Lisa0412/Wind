@@ -1,2 +1,3 @@
 # Wind
-4 wind velocity & weather data app
+Hey stranger!
+This project was developed to help Ukrainian military specialists, who are in need of detailed weather description in a particular region
