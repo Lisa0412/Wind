@@ -63,6 +63,6 @@ jobs:
           context: .
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: Wind:latest
+          tags: wind:latest
     
         
