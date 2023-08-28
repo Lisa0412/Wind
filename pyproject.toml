@@ -1,0 +1,21 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "WindApp_Lisa0412"
+version = "V1"
+authors = [
+  { name="Lisa0412", email="burdina.marina@gmail.com" },
+]
+description = "Detailed weather script V1"
+readme = "README.md"
+requires-python = ">3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/lisa0412/wind"
