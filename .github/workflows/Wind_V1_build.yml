@@ -64,6 +64,6 @@ jobs:
           file: ./Dockerfile
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: wind:latest
+          tags: lisa0412/wind:latest
     
         
