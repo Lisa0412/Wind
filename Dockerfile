@@ -1,7 +1,7 @@
 FROM python:3-alpine3.18
 
 #working directory:
-WORKDIR /Wind/src
+WORKDIR src
 
 #to COPY the remote file at working directory in container
 COPY Script_V1_python.py ./
