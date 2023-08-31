@@ -1,20 +1,21 @@
 pipeline {
-    agent any
+        agent {
+      dockerfile {
+        filename 'Dockerfile'
+      }
+    }
 
     stages {
-        stage('Build') {
+        stage('Docker build and push') {
             steps {
-                echo 'Building..'
-            }
-        }
-        stage('Test') {
-            steps {
-                echo 'Testing..'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying.....'
+               script {
+                  withDockerRegistry(credentialsId: 'docker_hub_credentials') {
+                  sh "docker build -t lisa0412/wind:v1.J"
+                  sh "docker push"
+
+                   }
+               }
+
             }
         }
     }
