@@ -1,5 +1,5 @@
 import requests
-import weathercode_dictionary
+from weathercode_dictionary import weathercode_dictionary
 
 user_input = input("Введіть координати в десяткових градусах через кому, приклад: 49.хххх, 24.хххх\n")
 input_list = user_input.split(",")
@@ -24,12 +24,20 @@ validate_and_execute(latitude_longitude_dictionary)
 input_latitude = float(latitude_longitude_dictionary["latitude"])
 input_longitude = float(latitude_longitude_dictionary["longitude"])
 
-
-response = requests.get(f"https://api.open-meteo.com/v1/forecast?latitude={input_latitude}&longitude={input_longitude}&hourly=temperature_2m&current_weather=true&temperature_unit=celsius&windspeed_unit=ms&timezone=auto")
+response = requests.get(f"https://api.open-meteo.com/v1/forecast?latitude={input_latitude}&longitude={input_longitude}&current_weather=true&temperature_unit=celsius&windspeed_unit=ms&timezone=auto&hourly=windspeed_120m")
 API_data = response.json()
 weather_value = API_data['current_weather']
+#weather_value_detailed = API_data['hourly']
+#апі респонз змінна is_day дорівнює 1 коли в знайденому регіоні день і 0 коли ніч
 
-print(weathercode_dictionary.weathercode_dictionary)
-print(weather_value)
+#print(weather_value)
+#print(weather_value_detailed)
+
+print(" Погода: ", weathercode_dictionary[str(weather_value['weathercode'])], "\n"
+      " Температура повітря: ", weather_value['temperature'], "°C\n",
+      "Середня швидкість вітру: ", weather_value['windspeed'], "м/с\n",
+      "Напрям вітру: ", weather_value['winddirection'], "°\n"
+      " Дата і час, коли зроблений прогноз: ", weather_value['time'], "\n"
+      )
 
 
