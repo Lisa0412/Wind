@@ -1,6 +1,6 @@
 from flask import Flask, render_template
 from forms import WeatherData
-from src import Script_V1_python
+
 app = Flask(__name__)
 
 @app.route("/")
@@ -8,6 +8,7 @@ app = Flask(__name__)
 @app.route("/weather")
 def weather_forecast():
     form = WeatherData()
+    #if form.validate_on_submit():
     return render_template('home.html', form = form)
 
 
