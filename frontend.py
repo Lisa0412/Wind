@@ -1,19 +1,19 @@
 from flask import Flask, render_template
 from forms import WeatherData
+from flask import request
+
 
 app = Flask(__name__)
 
-@app.route("/")
-@app.route("/home", methods=['GET', 'POST'])
-@app.route("/weather")
+@app.route("/", methods=['GET', 'POST'])
 def weather_forecast():
     form = WeatherData()
-    #if form.validate_on_submit():
+    if request.method =='POST':
+        print(request.form['latitude'], request.form['longitude'])
     return render_template('home.html', form = form)
 
 
-if __name__ == '__main__':
-    app.run(debug=True)
+
 
 
 
