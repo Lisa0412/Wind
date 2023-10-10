@@ -3,10 +3,8 @@
 
 name: Python package
 
-#events that trigger the follwoign workflow:
+#events that trigger the followign workflow:
 on:
-  push:
-    branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
 
@@ -57,13 +55,22 @@ jobs:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_TOKEN }}
       -
-        name: Build and push
+        name: Build and push backend
+        uses: docker/build-push-action@v4
+        with:
+          context: src
+          file: Dockerfile
+          platforms: linux/amd64,linux/arm64
+          push: true
+          tags: lisa0412/wind:backend_latest
+      -
+        name: Build and push frontend
         uses: docker/build-push-action@v4
         with:
           context: .
-          file: ./Dockerfile
+          file: Dockerfile
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: lisa0412/wind:latest
+          tags: lisa0412/wind:frontend_latest
     
         
