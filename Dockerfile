@@ -11,4 +11,4 @@ COPY templates/* ./
 RUN pip install request
 RUN pip install Flask
 
-CMD ["python3", "./frontend.py"]
+CMD ["frontend.py"]
